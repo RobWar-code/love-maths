@@ -1,7 +1,6 @@
 // Wait for page to load before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("got here");
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
@@ -14,6 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
+
     runGame("addition");
 });
 
@@ -22,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
+
     // Random numbers for quiz
     num1 = Math.floor(Math.random() * 25) + 1;
     num2 = Math.floor(Math.random() * 25) + 1;
