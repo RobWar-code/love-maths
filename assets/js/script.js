@@ -16,8 +16,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+/**
+ * The main game loop, called when the document is loaded
+ * and after the user's answer has been processed
+ */
 function runGame() {
-
+    // Random numbers for quiz
+    num1 = Math.floor(Math.random() * 25) + 1;
+    num2 = Math.floor(Math.random() * 25) + 1;
 }
 
 function checkAnswer() {
